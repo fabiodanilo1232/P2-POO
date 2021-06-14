@@ -73,7 +73,7 @@ public class Disciplina {
     
     public static void deleteDisciplina(String nome) throws Exception{
         Connection con = DbListener.getConnection();
-        String sql = "delete from disciplina where=?";
+        String sql = "delete from disciplina where nome=?";
         PreparedStatement stmt = con.prepareStatement(sql);
         stmt.setString(1, nome);
         
@@ -85,7 +85,7 @@ public class Disciplina {
     
     public static void updateDisciplina(String nome, double notaP1, double notaP2) throws Exception{
         Connection con = DbListener.getConnection();
-        String sql = "update discplina set notaP1=?, notaP2=? where nome=?";
+        String sql = "update disciplina set notaP1=?, notaP2=? where nome=?";
         PreparedStatement stmt = con.prepareStatement(sql);
         stmt.setDouble(1, notaP1);
         stmt.setDouble(2, notaP2);

@@ -4,9 +4,16 @@
     Author     : Fabio
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="db.Disciplina"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    ArrayList<Disciplina> disciplina = new ArrayList<>();
+  
+    disciplina = Disciplina.getDisciplinas();
+    
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
