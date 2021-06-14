@@ -4,14 +4,50 @@
     Author     : Fabio
 --%>
 
+<%@page import="db.Disciplina"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Início</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%@include file="WEB-INF/jspf/header.jspf" %>
+        <h1>Início </h1>
+        
+        <% if(session.getAttribute("user.login") != null){%>
+        <table border="1">
+                <tr>
+                    <th>RA</th>
+                    <th>Nome</th>
+                    <th>Semestre</th>
+                    <th>Github</th>               
+                </tr>
+                <tr>
+                    <td>1290481923048</td>
+                    <td>FABIO DANILO FIGUEIRA DO NASCIMENTO</td>
+                    <td>2º/2019</td>
+                    <td><a href="https://github.com/fabiodanilo1232"> Ir ao site </a></td>   
+                </tr>
+        </table>
+        
+        <br>
+            
+            <table border="1">
+                <tr>
+                    <th>Nome</th>
+                    <th>Média</th>
+                </tr>
+
+                <% for(Disciplina disciplinas: disciplina){%>
+                <tr>
+                    <td><%= disciplinas.getNome()%></td>
+                    <td><%= (Double)(disciplinas.getNotaP1() + disciplinas.getNotaP2())/2 %></td>
+                </tr>
+
+                <%}%>
+                </table>
+        <%}%>
     </body>
 </html>

@@ -3,7 +3,6 @@
 <%@page import="web.DbListener"%>
 <%@page import="db.Usuario"%>
 <%@ page pageEncoding="UTF-8" %>
-<h2>Hello World!</h2>
 
 <%
   String headerError = null;
@@ -50,6 +49,7 @@
 </form>
 <%}else{%>
 <form>
+    <%= session.getAttribute("user.name") %>
     <input type="submit" name="session.logout" value="Sair"/> |
     <a href="index.jsp"> Início</a> |
     <a href="disciplina.jsp"> Disciplina</a>
